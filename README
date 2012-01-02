@@ -1,0 +1,6 @@
+Code for experimenting with fund portfolios. See lab.rb for examples
+with real historic data.
+
+See Morningstar for ten-year historic data on mutual funds. However, their
+own search engine is worthless, so google for the name of the fund, followed
+by site:performance.morningstar.com

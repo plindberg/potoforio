@@ -82,6 +82,12 @@ dli = Asset.new('Danske Likviditet').tap {|a|
     2009 => +0.0244, 2010 => +0.0084, 2011 => +0.0217
   }.each {|y, g| a.annual_gains(y, 1.0 + g)}
 }
+arl = Asset.new('AMF Räntefond Lång').tap {|a|
+  { 2003 => +0.0543, 2004 => +0.0780, 2005 => +0.0553,
+    2006 => +0.0060, 2007 => +0.0102, 2008 => +0.1596,
+    2009 => +0.0204, 2010 => +0.0204, 2011 => +0.1153
+  }.each {|y, g| a.annual_gains(y, 1.0 + g)}
+}
 
 Portfolio.new(2003..2011, 'SkG/KoT/DG/EnT').tap {|p|
   p.plan(sgl, 0.40)
@@ -91,12 +97,39 @@ Portfolio.new(2003..2011, 'SkG/KoT/DG/EnT').tap {|p|
   p.annual_contribution = 1501 * 12
 }#.print
 
-Portfolio.new(2003..2011, 'lab').tap {|p|
+Portfolio.new(2003..2011, 'SkG/KoT/DG+LSm/EnT').tap {|p|
   p.plan(sgl, 0.40)
   p.plan(skt, 0.25)
   p.plan(dg,  0.10)
   p.plan(lsm, 0.15)
   p.plan(et,  0.10)
+  p.annual_contribution = 1501 * 12
+}#.print
+
+Portfolio.new(2003..2011, 'SkG/KoT/LSm/EnT').tap {|p|
+  p.plan(sgl, 0.40)
+  p.plan(skt, 0.25)
+  p.plan(lsm, 0.25)
+  p.plan(et,  0.10)
+  p.annual_contribution = 1501 * 12
+}#.print
+
+Portfolio.new(2003..2011, 'SkG/KoT/LSm/DLi+ARL').tap {|p|
+  p.plan(sgl, 0.40)
+  p.plan(skt, 0.25)
+  p.plan(lsm, 0.25)
+  p.plan(dli, 0.05)
+  p.plan(arl, 0.05)
+  p.annual_contribution = 1501 * 12
+}#.print
+
+Portfolio.new(2003..2011, 'lab').tap {|p|
+  #p.plan(sgl, 0.40)
+  #p.plan(skt, 0.25)
+  #p.plan(lsm, 0.25)
+  #p.plan(dli, 0.5)
+  #p.plan(arl, 0.5)
+  p.plan(et, 1.0)
   p.annual_contribution = 1501 * 12
 }.print
 

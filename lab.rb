@@ -131,7 +131,7 @@ Portfolio.new(2003..2011, 'lab').tap {|p|
   #p.plan(arl, 0.5)
   p.plan(et, 1.0)
   p.annual_contribution = 1501 * 12
-}.print
+}#.print
 
 Portfolio.new(2003..2011, 'SkG/KoT/DG/kr').tap {|p|
   p.plan(sgl, 0.40)
@@ -148,6 +148,14 @@ Portfolio.new(2003..2011, 'SkG/KoT/svidx/EnT').tap {|p|
   p.plan(et,  0.10)
   p.annual_contribution = 1501 * 12
 }#.print
+
+Portfolio.new(2003..2011, 'SkG/emidx/DG/EnT').tap {|p|
+  p.plan(sgl, 0.40)
+  p.plan(dem, 0.25)
+  p.plan(dg,  0.25)
+  p.plan(et,  0.10)
+  p.annual_contribution = 1501 * 12
+}.print
 
 Portfolio.new(2003..2011, 'SkG/emidx/DG/EnT').tap {|p|
   p.plan(sgl, 0.40)
